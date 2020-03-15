@@ -1,0 +1,12 @@
+/**
+ * http://docs.sequelizejs.com/manual/tutorial/migrations.html
+ * http://docs.sequelizejs.com/class/lib/query-interface.js~QueryInterface.html
+ *
+ */
+const path = require("path") 
+module.exports =  {
+            "config": path.resolve("./api/config/database.js"),
+            "models-path": path.resolve("./api/src/models"),
+            "seeders-path": path.resolve("./api/seeders"),
+            "migrations-path": path.resolve("./api/migrations")
+ };
