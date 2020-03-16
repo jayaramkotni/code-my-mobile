@@ -21,7 +21,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.projectContextService.userContext$.subscribe(user => {
-      console.log("dash", user)
       this.user = user;
       if (user && user.id)
         this.getUserFriends(user.id);
@@ -31,7 +30,6 @@ export class DashboardComponent implements OnInit {
   getUserFriends(user_id) {
     const url = APIUrlConstants.getUserFriends.replace("{{user_id}}", user_id)
     this.httpClientService.getByObservable(url).subscribe((result) => {
-      console.log("getUserFriends", result);
       let { data }: any = result
       this.friends = data;
     })

@@ -22,11 +22,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.projectContextService.userDataSource$.subscribe(users => {
-      console.log("users", users)
       this.users = users;
       this.selectedUser = users.length > 0 ? users[0] : this.selectedUser;
       this.projectContextService.userContext$.next(this.selectedUser);
-      console.log("this.users", this.users)
     })
   }
 

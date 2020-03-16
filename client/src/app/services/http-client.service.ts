@@ -46,10 +46,7 @@ export class HttpClientService {
 	private handleObservableError(error: any): Observable<any> {
 		let err: any;
 		try {
-
-			let dataKey: string = 'message';
 			err = error.json();
-			console.log("ERROR", err);
 		} catch (exception) {
 			err = error;
 		} finally {
