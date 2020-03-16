@@ -23,8 +23,8 @@ const STATUS = {
 
 /**
  * Method to create response meta object
- * @param {string} desc
- * @return json object
+ * @param {String} desc
+ * @return {Object}
  */
 const getSuccessMeta = (desc) => {
     let res = {};
@@ -37,8 +37,8 @@ const getSuccessMeta = (desc) => {
 /**
  * Method to create failure response meta object
  * @param {*} code
- * @param {string} desc
- * @return json object
+ * @param {String} desc
+ * @return {Object}
  */
 const getFailureMeta = (code, desc) => {
     let res = {};
@@ -48,6 +48,12 @@ const getFailureMeta = (code, desc) => {
     return res;
 };
 
+/**
+ * Method to creates response object 
+ * @param {*} err 
+ * @param {*} data 
+ * @return {Object}
+ */
 const responeBuilder = (err, data) => {
     if (err) {
         return {
