@@ -2,7 +2,7 @@
 const { sequelize, DataTypes } = require("../db/sequelize");
 
 const Relationship = sequelize.define("relationship", {
-    "requested_id": {
+    "user_id": {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
@@ -13,7 +13,7 @@ const Relationship = sequelize.define("relationship", {
         onUpdate: "cascade",
         onDelete: "cascade"
     },
-    "addressed_id": {
+    "friend_id": {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
@@ -34,14 +34,9 @@ const Relationship = sequelize.define("relationship", {
                 throw new Error("Invalid status code");
             }
         }
-    },
-    // we wiil use action_performed_id to track who done last status update
-    "action_performed_id": {
-        type: DataTypes.INTEGER,
-        allowNull: false,
     }
 }, {
-    timestamps: true,
+    timestamps: false,
     underscored: true
 });
 

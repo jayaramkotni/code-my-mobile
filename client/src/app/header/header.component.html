@@ -1,0 +1,19 @@
+<!-- BEGIN HEADER -->
+<div class="toolbar" role="banner">
+    <img width="150" alt="Angular Logo" src="https://codemymobile.com/assets/images/codemymobile-logo-light.svg" />
+    <div class="spacer"></div>
+    <img class="avatar" src="{{selectedUser.avatar}}" alt="Avatar" style="width:50px">
+    <div class="dropdown">
+        <button class="dropbtn">{{selectedUser.first_name}}</button>
+        <div class="dropdown-content">
+            <a *ngFor="let user of users" (click)="onClick(user)"
+                [style.display]="selectedUser.first_name !==  user.first_name? 'block' : 'none'">
+                {{user.first_name}}
+            </a>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M7 10l5 5 5-5H7z" /></svg>
+    </div>
+</div>
+<!-- END HEADER -->

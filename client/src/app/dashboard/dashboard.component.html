@@ -1,0 +1,33 @@
+<div class="card-container">
+    <div style="text-align: center;align-items: center;padding-right: 150px">
+        <h2>Profile</h2>
+        <table>
+            <tr>
+                <td>first name</td>
+                <td>{{user.first_name}}</td>
+            </tr>
+            <tr>
+                <td>last name</td>
+                <td>{{user.last_name}}</td>
+            </tr>
+            <tr>
+                <td>gender</td>
+                <td>{{user.gender}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="text-align: center;align-items: center;padding-left: 150px">
+        <h2>Friends</h2>
+        <table>
+            <tr *ngFor="let friend of friends">
+                <td>
+                    <img class="avatar" src="{{friend.avatar}}" alt="Avatar" style="width:50px">
+                </td>
+                <td>
+                    {{friend.first_name}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

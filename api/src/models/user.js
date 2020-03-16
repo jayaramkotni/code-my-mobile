@@ -5,7 +5,6 @@ const GENDERS = {
     FEMALE: "female",
     OTHERS: "others"
 };
-// const { translator } = require("./../global/i18n");
 
 const User = sequelize.define("user", {
     "id": {
@@ -39,19 +38,9 @@ const User = sequelize.define("user", {
         allowNull: true
     }
 }, {
-    timestamps: true,
+    timestamps: false,
     underscored: true
 });
 
-// User.hasMany(Relationship, {
-//     foreignKey: "requested_id",
-//     otherKey: "addressed_id",
-//     as: "relations"
-// });
-User.belongsToMany(User, {
-    through: Relationship,
-    foreignKey: "requested_id",
-    otherKey: "addressed_id",
-    as: "relations"
-});
+User.hasMany(Relationship, { as: "friends" });
 module.exports = { User };
