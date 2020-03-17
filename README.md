@@ -40,24 +40,21 @@ URL : http://localhost:3000/
 
 ### 5. API'S
 ```
-  DESC:To get all users with pagination
-  API: http://localhost:3000/v1/users 
-  METHOD: GET
-  QUERY-PARAMTERS:page,page_size
+  API: http://localhost:3000/v1/users (GET)
+  description: To get all users with pagination
+  query-parameters:page,page_size
 
   usage: http://localhost:3000/v1/users?page=1&page_size=10
 ```
 ```
-  DESC:To get all friends of specified user
-  API: http://localhost:3000/v1/users/:user_id/friends  
-  METHOD: GET
+  API: http://localhost:3000/v1/users/:user_id/friends  (GET)
+  description:To get all friends of specified user
    
   usage:http://localhost:3000/v1/users/1/friends 
 ```
 ```
-  DESC:To get all friends of specified user
-  API: http://localhost:3000/v1/users/:user_id/friends-of-friends  
-  METHOD: GET
+  API: http://localhost:3000/v1/users/:user_id/friends-of-friends (GET)
+  description:To get all friends of specified user
    
   usage:http://localhost:3000/v1/users/1/friends 
 ```

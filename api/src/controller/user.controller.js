@@ -68,7 +68,7 @@ exports.getAllFriendsOfUserFriendsById = () => {
                     desc: "invalid user_id"
                 }));
             }
-            let query = "SELECT users.* from users "
+            let query = "SELECT users.* ,relationships.friend_id from users "
                 + "JOIN relationships ON users.id = relationships.user_id "
                 + "WHERE relationships.friend_id IN "
                 + "(SELECT friend_id from relationships where user_id =:user_id AND status=:status)";
@@ -81,11 +81,16 @@ exports.getAllFriendsOfUserFriendsById = () => {
             let friendsList = {};
             if (Array.isArray(result) && result.length > 0) {
                 for (let user of result) {
-                    if (!(user.id in friendsList))
-                        friendsList[user.id] = user;
+                    let { friend_id } = user;
+                    delete user.friend_id;
+                    if (friend_id in friendsList) {
+                        friendsList[friend_id]["friends"].push(user);
+                    } else {
+                        friendsList[friend_id] = { friend_id, friends: [user] };
+                    }
                 }
             }
-            res.status(RESCODE.OK).send(responeBuilder(null, Object.values(friendsList)));
+            res.status(200).send(responeBuilder(null, Object.values(friendsList)));
         } catch (err) {
             res.status(RESCODE.INTERNAL_ERROR).send(responeBuilder({
                 code: RESCODE.INTERNAL_ERROR,
