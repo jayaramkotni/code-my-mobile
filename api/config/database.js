@@ -1,5 +1,5 @@
 require("dotenv").config();
-const debug = require("debug")("api:sequelize");
+//const debug = require("debug")("api:sequelize");
 module.exports = {
     dialect: "postgres",
     host: process.env.DB_HOST,
@@ -13,9 +13,7 @@ module.exports = {
         acquire: 30000,
         idle: 10000
     },
-    logging: (msg) => {
-        debug(msg);
-    },
+    logging: false,
     seederStorage: "sequelize",
     seederStorageTableName: "sequelize_data",
     migrationStorageTableName: "sequelize_meta",
