@@ -6,6 +6,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const debug = require("debug")("api:server");
 app.disable("x-powered-by");
+app.use(express.static(path.resolve("./public")));
 app.use(express.static(path.resolve("./dist/client")));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(bodyParser.json({ type: "text/plain", limit: "50mb" }));
