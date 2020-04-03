@@ -38,7 +38,7 @@ List of NPM Commands:
 
 URL : http://localhost:3000/
 
-### 5. API'S
+### 4. API'S
 ```
   API: http://localhost:3000/v1/users (GET)
   description: To get all users with pagination
@@ -60,7 +60,7 @@ URL : http://localhost:3000/
 ```
 
     
-### 4. Useful Link
+### 5. Useful Link
 - Web framework for Node.js - [Express](http://expressjs.com/)
 - Sequelize ORM - [Sequelize](https://sequelize.org/)
 - Code linting tool - [ESLint](http://eslint.org/)
