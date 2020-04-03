@@ -46,7 +46,7 @@ module.exports = {
         const STATUS = Relationship.getStatusCodes();
         // NOTE:To maintain clean data we are inserting 2 entiries for "ACCEPTED" status relationship
         // between to users
-        // e.g: if users 1,2 are friends then we inser (1,2) and (2,1)
+        // e.g: if users 1,2 are friends then we insert (1,2) and (2,1)
         await Relationship.bulkCreate([
             {
                 user_id: 1,
